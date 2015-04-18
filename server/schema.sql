@@ -6,7 +6,7 @@ CREATE TABLE `messages` (
   `index` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(100),
   `roomname` VARCHAR(100),
-  `createat` DATETIME,
+  `createat` DATETIME NOT NULL DEFAULT NOW(),
   `text` VARCHAR(200),
   PRIMARY KEY  (`index`)
 );
@@ -23,10 +23,10 @@ CREATE TABLE `rooms` (
   PRIMARY KEY  (`roomname`)
 );
 
-ALTER TABLE `messages` ADD CONSTRAINT `messages_fk1` FOREIGN KEY (`username`) REFERENCES users(`username`);
-ALTER TABLE `messages` ADD CONSTRAINT `messages_fk2` FOREIGN KEY (`roomname`) REFERENCES rooms(`roomname`);
+-- ALTER TABLE `messages` ADD CONSTRAINT `messages_fk1` FOREIGN KEY (`username`) REFERENCES users(`username`);
+-- ALTER TABLE `messages` ADD CONSTRAINT `messages_fk2` FOREIGN KEY (`roomname`) REFERENCES rooms(`roomname`);
 
-ALTER TABLE `rooms` ADD CONSTRAINT `rooms_fk1` FOREIGN KEY (`username`) REFERENCES users(`username`);
+-- ALTER TABLE `rooms` ADD CONSTRAINT `rooms_fk1` FOREIGN KEY (`username`) REFERENCES users(`username`);
 
 
 

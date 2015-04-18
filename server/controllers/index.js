@@ -12,10 +12,8 @@ module.exports = {
       });
     }, // a function which handles a get request for all messages
     post: function (req, res) {
-      utils.collectData(req, function(data){
-        models.messages.post(data,function(data){
-          utils.sendResponse(res, data, 201);
-        });
+      models.messages.post(req.body,function(data){
+        utils.sendResponse(res, data, 201);
       });
     } // a function which handles posting a message to the database
   },
@@ -28,10 +26,8 @@ module.exports = {
       });
     },
     post: function (req, res) {
-      utils.collectData(req, function(data){
-        models.users.post(data,function(data){
-          utils.sendResponse(res, data, 201);
-        });
+      models.users.post(req.body,function(data){
+        utils.sendResponse(res, data, 201);
       });
     }
   }
